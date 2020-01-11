@@ -241,7 +241,7 @@ def define_G(input_nc,
         netG = UnetCNNGenerator(
             input_nc,
             output_nc,
-            7,
+            6,
             ngf,
             norm_layer=norm_layer,
             use_dropout=use_dropout,

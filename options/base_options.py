@@ -34,7 +34,7 @@ class BaseOptions():
         self.parser.add_argument(
                 '--output_nc',
                 type=int,
-                default=1,
+                default=6,
                 help='# of output image channels')
         self.parser.add_argument(
                 '--ngf',

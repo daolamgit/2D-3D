@@ -154,5 +154,25 @@ class TrainOptions(BaseOptions):
             'how much semi_loss D used in training'
         )
 
+        self.parser.add_argument(
+            '--val_index',
+            type=int,
+            default=0,
+            help='index of the patient used for validation'
+        )
+
+        self.parser.add_argument(
+            '--test_index',
+            type=int,
+            default=1,
+            help='index of the patient used for validation'
+        )
+
+        self.parser.add_argument(
+            '--total_patients',
+            type=int,
+            default=36,
+            help='index of the patient used for validation'
+        )
 
         self.isTrain = True
