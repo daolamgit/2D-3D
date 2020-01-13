@@ -75,7 +75,15 @@ def tensor2im(image_tensor, imtype=np.uint8):
     '''
     image_numpy = image_tensor[0].cpu().float().numpy()
 
+
+
+    #torch binarry crossentropy don't need onehot encoding
+    #so dim C is ignored
+    if len(image_numpy.shape) <3: #add more
+        image_numpy = np.expand_dims( image_numpy, axis=0)
+
     image_color = np.copy( image_numpy)
+
     if image_numpy.shape[0] > 3: #multi contour masks
         for i in range(image_numpy.shape[0]):
             image_color[i, :, :] = image_numpy[i, :, :] * (i + 1)

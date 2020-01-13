@@ -63,7 +63,8 @@ for epoch in range(opt.epoch_count, opt.niter + opt.niter_decay + 1):
                 if opt.display_id > 0:
                     visualizer.plot_current_errors(
                         epoch,
-                        float(epoch_iter) / dataset_size, opt, errors)
+                        total_steps,# float(epoch_iter) / dataset_size,
+                        opt, errors)
 
             if total_steps % opt.save_latest_freq == 0:
                 print('saving the latest model (epoch {}, total_steps {})'.format(

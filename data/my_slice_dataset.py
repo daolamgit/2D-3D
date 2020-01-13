@@ -36,19 +36,18 @@ class MySliceDataset(BaseDataset):
         f_h5        = h5py.File( pt_path, 'r')
         self.images      = np.asarray(f_h5['Volume_resize'], dtype=np.float32)
         masks       = np.asarray(f_h5['Masks_resize'], dtype=np.int)
-
-        #convert masks from S,W,H to S, Class, W, H
-
-        C = np.amax(masks)
-        self.masks = np.eye(C+1)[masks] #very subtle
-        #roll axis
-        self.masks = np.moveaxis(self.masks, -1, 1)
+        self.masks  = masks
+        # #convert masks from S,W,H to S, Class, W, H
+        # C = np.amax(masks)
+        # self.masks = np.eye(C+1)[masks].astype('int64') #very subtle
+        # #roll axis
+        # self.masks = np.moveaxis(self.masks, -1, 1)
 
 
         #resize to 256, remember to take it out
-        Shape = self.images.shape
-        self.images = resize( self.images, (Shape[0], 256, 256))
-        self.masks = resize(self.masks, (Shape[0], 256, 256))
+        # Shape = self.images.shape
+        # self.images = resize( self.images, (Shape[0], 256, 256))
+        # self.masks = resize(self.masks, (Shape[0], Shape[1], 256, 256))
 
         # self.dir_AB = os.path.join(opt.dataroot, opt.phase, 'Images')
         # # go through directory return os.path for all images

@@ -38,7 +38,8 @@ class UnetCNNModel(BaseModel):
             # define loss functions
             # self.criterionGAN = networks.GANLoss(
             #        use_lsgan=not opt.no_lsgan, tensor=self.Tensor)
-            self.criterionL2 = torch.nn.MSELoss()
+            # self.criterionL2 = torch.nn.MSELoss()
+            self.criterionL2 = torch.nn.CrossEntropyLoss()
 
             # initialize optimizers
             self.schedulers = []
