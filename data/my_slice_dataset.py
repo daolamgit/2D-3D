@@ -35,7 +35,7 @@ class MySliceDataset(BaseDataset):
         pt_path     = pt_list[opt.pt_index]
         f_h5        = h5py.File( pt_path, 'r')
         self.images      = np.asarray(f_h5['Volume_resize'], dtype=np.float32)
-        masks       = np.asarray(f_h5['Masks_resize'], dtype=np.int)
+        masks       = np.asarray(f_h5['Masks_resize'], dtype=np.int64)
         self.masks  = masks
         # #convert masks from S,W,H to S, Class, W, H
         # C = np.amax(masks)

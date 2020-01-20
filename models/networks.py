@@ -6,7 +6,7 @@ from torch.autograd import Variable
 from torch.optim import lr_scheduler
 import pudb
 
-from tiramisu import FCDenseNet
+from models.tiramisu import FCDenseNet
 
 #
 # Functions

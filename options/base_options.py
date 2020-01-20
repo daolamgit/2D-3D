@@ -101,7 +101,7 @@ class BaseOptions():
         self.parser.add_argument(
                 '--nThreads',
                 type=int,
-                default=2,
+                default=0,
                 help='# threads for loading data')
         self.parser.add_argument(
                 '--checkpoints_dir',
